@@ -17,7 +17,8 @@ class Users(BaseModel):
     company_id: int
     is_verified: bool
     is_admin: bool
-class update_user(BaseModel):
+        
+class user_update(BaseModel):
     firstname: str
     lastname: str
     email: EmailStr
