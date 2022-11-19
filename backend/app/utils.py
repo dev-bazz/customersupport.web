@@ -1,11 +1,11 @@
-import models as _model
-import schema as _schema
-import sqlalchemy.orm as _orm
+# import models as _model
+# import schema as _schema
+# import sqlalchemy.orm as _orm
 
-# Getting a user
-def get_user(db: None, user_id: int):
-    # return a instance of the user
-    return db.query(_model.user).filter(_model.user.id == user_id).first()
+# # Getting a user
+# def get_user(db: None, user_id: int):
+#     # return a instance of the user
+#     return db.query(_model.user).filter(_model.user.id == user_id).first()
 
 # Update the user
 # db = database.Session since it not present yet

@@ -10,6 +10,8 @@ import models
 
 # from db import Base, engine, SessionLocal
 # from sqlalchemy.orm import Session
+import crud as _crud
+import schema
 
 description = """
 Scrybe API helps you analyse sentiments in your customer support calls
@@ -66,4 +68,8 @@ async def analyse(file: UploadFile=File(...)):
 # async def login(form_data: OAuth2PasswordRequestForm = Depends(), session: Session = Depends(get_session)):
 #     # return token once the user has been successfully authenticated, or it returns an error.
 #     return await main_login(form_data, session)
+
+@app.put("/user/update/{user_id}", response_model=schema.user_update)
+def update_user(user: schema.user_update, user_id: int):
+    return _crud.update_user(user=user, user_id=user_id)
 

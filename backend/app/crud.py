@@ -1,6 +1,7 @@
 # # crud operations for the backend app
 # from sqlalchemy.orm import Session
 # import models, schema
+# import HTTPException from fastapi 
 
 # def get_user(db: Session, user_id: int):
 #     return db.query(models.User).filter(models.User.id == user_id).first()
@@ -13,6 +14,22 @@
 
 # def create_user(db: Session, user: schema.Users):
 #     db_user = models.User(first_name=user.firstname, last_name=user.last_name, email=user.email, hashed_password=user.password)
+#     db.add(db_user)
+#     db.commit()
+#     db.refresh(db_user)
+#     return db_user
+
+# def update_user(db: Session, user: schema.update_user, user_id: int):
+#     # Getting the current user
+#     db_user = get_user(
+#         db = db,
+#         user_id=user_id
+#         )
+#     if not db_user:
+#         raise HTTPException(status_code=404, detail="user not found")
+#     user_data = user.dict(exclude_unset=True)
+#     for key, value in user_data.items():
+#             setattr(db_user, key, value)
 #     db.add(db_user)
 #     db.commit()
 #     db.refresh(db_user)
