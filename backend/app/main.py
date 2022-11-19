@@ -71,5 +71,5 @@ async def analyse(file: UploadFile=File(...)):
 
 @app.put("/user/update/{user_id}", response_model=schema.user_update)
 def update_user(user: schema.user_update, user_id: int):
-    return _crud.update_user(user=user, user_id=user_id)
+     return _crud.update_user(user=user, user_id=user_id)
 
