@@ -17,7 +17,12 @@ class Users(BaseModel):
     company_id: int
     is_verified: bool
     is_admin: bool
-
+        
+class user_update(BaseModel):
+    firstname: str
+    lastname: str
+    email: EmailStr
+    company_id: int
 
 class Agents(BaseModel):
     id: int
@@ -82,6 +87,5 @@ class AudioAnalysisSchema(AudioAnalysis):
     grammatical_analysis: List[GrammerAnalysis]
     anger_analysis: List[AngerAnalysis]
     call_duration_analysis: List[CallDurationAnalysis]
-
 
 
