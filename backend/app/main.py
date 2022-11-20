@@ -69,7 +69,7 @@ async def analyse(file: UploadFile=File(...)):
 #     # return token once the user has been successfully authenticated, or it returns an error.
 #     return await main_login(form_data, session)
 
-@app.put("/user/update/{user_id}", response_model=schema.user_update)
-def update_user(user: schema.user_update, user_id: int):
-     return _crud.update_user(user=user, user_id=user_id)
+@app.patch("/user/update/{user_id}", response_model=schema.user_update)
+def update_user(user: schema.user_update, user_id: int, db:Session=_fastapi.Depends(get_session)):
+     return _crud.update_user(db=db, user=user, user_id=user_id)
 
